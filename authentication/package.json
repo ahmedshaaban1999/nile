@@ -4,7 +4,8 @@
   "description": "an authentication microservices",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "nodemon app.js"
   },
   "author": "Ahmed Shaaban",
   "license": "ISC",
