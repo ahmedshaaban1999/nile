@@ -1,0 +1,20 @@
+{
+  "name": "nile_authentication",
+  "version": "0.0.1",
+  "description": "an authentication microservices",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Ahmed Shaaban",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.1",
+    "validator": "^10.8.0"
+  }
+}

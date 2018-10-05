@@ -1,0 +1,2 @@
+# Authentication Service
+This service is responsible for authenticating every user. Since this service will be hidden behind the API Gateway, all the json web tokens (jwt) will be sent in the body of POST requests.
