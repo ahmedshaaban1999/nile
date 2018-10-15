@@ -3,26 +3,45 @@ const User = mongoose.model('User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-exports.mainPage = (req, res) => {
-    res.render('register');
-}
 
 exports.register = async (req, res) => {
     /*
-    the request consists of:
-    -email
-    -password
+    after registering, redirect to the login page
     */
-   try{   
-    req.body.password = bcrypt.hashSync(req.body.password, 8);
-    await User(req.body).save();
+    try{
+        //TODO: check if password is secured
+        req.body.password = bcrypt.hashSync(req.body.password, 8);
+        await User(req.body).save();
     
-    var token = jwt.sign({ email: req.body.email, password: req.body.password },                    process.env.SECRET, {
-        expiresIn: 86400 // expires in 24 hours
-    });
+        res.statusCode = 200;
+        //redirect to login page
+        res.send("registeration complete !!!");
+    } catch(e) {
+        res.statusCode = 500;
+        res.json(e);
+    }
+}
 
-    res.statusCode = 200;
-    res.json({"Token": token});
+exports.login = async (req,res) => {
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        //no user found !!!
+        if (!user){
+            throw new Error("user not found");
+        }
+        
+        const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
+        //password is not valid
+        if (!passwordIsValid){
+            throw new Error("password doesn't match");
+        }
+        
+        var token = jwt.sign("add another secret here",process.env.SECRET, {
+            expiresIn: 86400 // expires in 24 hours
+        });
+        res.statusCode = 200;
+        res.json({ "Token": token });
+
     } catch(e) {
         res.statusCode = 500;
         res.json(e);
