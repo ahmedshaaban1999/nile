@@ -1,0 +1,6 @@
+.vscode
+database
+node_modules
+*.todo
+*.bat
+*.env

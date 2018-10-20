@@ -1,0 +1,11 @@
+{
+  "name": "nile_gateway",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Ahmed Shaaban",
+  "license": "ISC"
+}
