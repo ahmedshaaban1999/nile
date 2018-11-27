@@ -1,0 +1,17 @@
+{
+  "name": "nile_client",
+  "version": "0.0.1",
+  "description": "web client code for nile.com website",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ./tests",
+    "start": "nodemon app.js"
+  },
+  "author": "Ahmed Shaaban",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
