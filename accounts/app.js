@@ -4,13 +4,13 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config({ path: 'variables.env'});
 
-/*
+
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error',(err) => {
     console.error(err);
 });
-*/
+
 
 require('./models/user');
 const routes = require('./routes/index');
